@@ -1,0 +1,25 @@
+main img {
+  width: 200px;
+  margin: 50px;
+}
+
+body {
+  background-color: cadetblue;
+}
+
+main {
+  background-color: lightgray;
+}
+
+h1 {
+  font-size: 3em;
+}
+
+section div {
+  background-color: lightslategray;
+  width: max-content;
+  text-align: center;
+  margin: auto;
+  padding: 5px;
+  font-size: 2em;
+}
