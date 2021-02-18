@@ -69,6 +69,27 @@ function renderResults(){
   }
 }
 
-renderProduct();
-renderResults();
+function handleClick(event){
+  if(event.target === myContainer){
+    alert('Please click on an image');
+  }
 
+  totalClicks++;
+  let productClicked = event.target.title;
+
+  for (let i = 0; i < allProducts.length; i++){
+    if (productClicked === allProducts[i].name){
+      allProducts[i].clicks++;
+    }
+  }
+
+  renderProduct();
+  if (totalClicks === allowedClicks){
+    myContainer.removeEventListener('click',handleClick);
+  }
+}
+
+
+renderProduct();
+
+myContainer.addEventListener('click', handleClick);
