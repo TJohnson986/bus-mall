@@ -60,5 +60,15 @@ function renderProduct() {
   allProducts[thirdProductIndex].views++;
 }
 
+function renderResults(){
+  let resultsList = document.querySelector('ul');
+  for (let i = 0; i < allProducts.length; i++){
+    let li = document.createElement('li');
+    li.textContent = `${allProducts[i].name} had ${allProducts[i].clicks} votes, and was seen ${allProducts[i].views} times.`;
+    resultsList.appendChild(li);
+  }
+}
+
 renderProduct();
+renderResults();
 
