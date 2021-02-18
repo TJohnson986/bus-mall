@@ -9,7 +9,6 @@ let firstImage = document.querySelector('main img:first-child');
 let secondImage = document.querySelector('main img:nth-child(2)');
 let thirdImage = document.querySelector('main img:nth-child(3)');
 let myContainer = document.querySelector('main');
-// let myButton = document.querySelector('div');
 
 function Product(name, fileExtension = 'jpg') {
   this.name = name;
@@ -70,15 +69,6 @@ function renderProduct() {
   allProducts[thirdProductIndex].views++;
 }
 
-// function renderResults() {
-//   let resultsList = document.querySelector('ul');
-//   for (let i = 0; i < allProducts.length; i++) {
-//     let li = document.createElement('li');
-//     li.textContent = `${allProducts[i].name} had ${allProducts[i].clicks} votes, and was seen ${allProducts[i].views} times.`;
-//     resultsList.appendChild(li);
-//   }
-// }
-
 function handleClick(event) {
   if (event.target === myContainer) {
     alert('Please click on an image');
@@ -100,13 +90,6 @@ function handleClick(event) {
   }
 }
 
-// function handleButtonClick(event) { //eslint-disable-line
-//   if (totalClicks === allowedClicks) {
-//     renderResults();
-//   }
-// }
-
-
 renderProduct();
 
 function renderChart() {
@@ -123,17 +106,17 @@ function renderChart() {
   var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: [productNames],
+      labels: productNames,
       datasets: [{
         label: 'Views',
-        data: [productViews],
+        data: productViews,
         backgroundColor: 'rgba(54, 162, 235, 0.2)',
         borderColor: 'rgba(54, 162, 235, 0.2)',
         borderWidth: 2
       },
       {
         label: 'Clicks',
-        data: [productClicks],
+        data: productClicks,
         backgroundColor: 'rgba(255, 159, 64, 0.2)',
         borderColor: 'rgba(255, 159, 64, 0.2)',
         borderWidth: 1
@@ -153,4 +136,3 @@ function renderChart() {
 
 
 myContainer.addEventListener('click', handleClick);
-// myButton.addEventListener('click', handleButtonClick);
