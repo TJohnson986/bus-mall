@@ -17,6 +17,7 @@ function Product(name, fileExtension = 'jpg') {
 }
 
 new Product('bag');
+new Product('banana');
 
 function getRandomProduct() {
   return Math.floor(Math.random() * allProducts.length);
