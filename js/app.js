@@ -7,6 +7,7 @@ let firstImage = document.querySelector('main img:first-child');
 let secondImage = document.querySelector('main img:nth-child(2)');
 let thirdImage = document.querySelector('main img:nth-child(3)');
 let myContainer = document.querySelector('main');
+let myButton = document.querySelector('div');
 
 function Product(name, fileExtension = 'jpg') {
   this.name = name;
@@ -89,7 +90,14 @@ function handleClick(event){
   }
 }
 
+function handleButtonClick(event){ //eslint-disable-line
+  if(totalClicks === allowedClicks){
+    renderResults();
+  }
+}
+
 
 renderProduct();
 
 myContainer.addEventListener('click', handleClick);
+myButton.addEventListener('click', handleButtonClick);
