@@ -1,7 +1,7 @@
 'use strict';
 
 let totalClicks = 0;
-let allowedClicks = 5;
+let allowedClicks = 25;
 let allProducts = [];
 let firstImage = document.querySelector('main img:first-child');
 let secondImage = document.querySelector('main img:nth-child(2)');
