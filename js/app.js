@@ -1,7 +1,7 @@
 'use strict';
 
 let totalClicks = 0;
-let allowedClicks = 5;
+let allowedClicks = 25;
 let allProducts = [];
 let randomArray = [];
 let uniqueImageCount = 6;
@@ -18,26 +18,34 @@ function Product(name, fileExtension = 'jpg') {
   allProducts.push(this);
 }
 
-new Product('bag');
-new Product('banana');
-new Product('bathroom');
-new Product('boots');
-new Product('breakfast');
-new Product('bubblegum');
-new Product('chair');
-new Product('cthulhu');
-new Product('dog-duck');
-new Product('dragon');
-new Product('pen');
-new Product('pet-sweep');
-new Product('scissors');
-new Product('shark');
-new Product('sweep', 'png');
-new Product('tauntaun');
-new Product('unicorn');
-new Product('usb', 'gif');
-new Product('water-can');
-new Product('wine-glass');
+let retrievedProducts = localStorage.getItem('products');
+
+if (retrievedProducts) {
+  let parsedProducts = JSON.parse(retrievedProducts);
+  allProducts = parsedProducts;
+} else {
+  new Product('bag');
+  new Product('banana');
+  new Product('bathroom');
+  new Product('boots');
+  new Product('breakfast');
+  new Product('bubblegum');
+  new Product('chair');
+  new Product('cthulhu');
+  new Product('dog-duck');
+  new Product('dragon');
+  new Product('pen');
+  new Product('pet-sweep');
+  new Product('scissors');
+  new Product('shark');
+  new Product('sweep', 'png');
+  new Product('tauntaun');
+  new Product('unicorn');
+  new Product('usb', 'gif');
+  new Product('water-can');
+  new Product('wine-glass');
+}
+
 
 function getRandomProduct() {
   return Math.floor(Math.random() * allProducts.length);
@@ -50,7 +58,6 @@ function renderProduct() {
       randomArray.push(randomProduct);
     }
   }
-  console.log(randomArray);
   let firstProductIndex = randomArray.shift();
   let secondProductIndex = randomArray.shift();
   let thirdProductIndex = randomArray.shift();
@@ -87,6 +94,8 @@ function handleClick(event) {
   if (totalClicks === allowedClicks) {
     myContainer.removeEventListener('click', handleClick);
     renderChart();
+    let stringifiedProduct = JSON.stringify(allProducts);
+    localStorage.setItem('products', stringifiedProduct);
   }
 }
 
