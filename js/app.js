@@ -46,7 +46,6 @@ if (retrievedProducts) {
   new Product('wine-glass');
 }
 
-
 function getRandomProduct() {
   return Math.floor(Math.random() * allProducts.length);
 }
@@ -112,7 +111,7 @@ function renderChart() {
   }
 
   var ctx = document.getElementById('myChart').getContext('2d');
-  var myChart = new Chart(ctx, {
+  var myChart = new Chart(ctx, { //eslint-disable-line
     type: 'bar',
     data: {
       labels: productNames,
